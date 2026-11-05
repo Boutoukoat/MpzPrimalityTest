@@ -17,14 +17,17 @@ bool mpz_mpz_primality(mpz_t n, bool verbose)
         gmp_printf("Testing a %lu digits number\n", mpz_sizeinbase(n, 10));
     }
 
-    bool b = mpz_probab_prime_p(n,0);
-    if (b == false)
+    bool b = mpz_probab_prime_p(n, 0);
+    if (verbose)
     {
-        printf("Number is composite\n");
-    }
-    else
-    {
-        printf("Number passed all tests and is unlikely a composite one\n");
+        if (b == false)
+        {
+            printf("Number is composite\n");
+        }
+        else
+        {
+            printf("Number passed all tests and is unlikely a composite one\n");
+        }
     }
 
     return b;
@@ -33,4 +36,3 @@ bool mpz_mpz_primality(mpz_t n, bool verbose)
 void mpz_primality_self_test(void)
 {
 }
-
